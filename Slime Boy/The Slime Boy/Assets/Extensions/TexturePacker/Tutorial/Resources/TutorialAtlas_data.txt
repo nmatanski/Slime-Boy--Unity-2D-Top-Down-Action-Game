@@ -1,0 +1,244 @@
+{"frames": {
+
+"Shield06Diff.png":
+{
+	"frame": {"x":2,"y":533,"w":200,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":200,"h":200},
+	"sourceSize": {"w":200,"h":200}
+},
+"b_share.png":
+{
+	"frame": {"x":2,"y":126,"w":122,"h":42},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":122,"h":42},
+	"sourceSize": {"w":122,"h":42}
+},
+"bolt_tesla_0001.png":
+{
+	"frame": {"x":698,"y":2,"w":92,"h":36},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":5,"y":25,"w":92,"h":36},
+	"sourceSize": {"w":100,"h":100}
+},
+"bolt_tesla_0002.png":
+{
+	"frame": {"x":96,"y":82,"w":92,"h":32},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":5,"y":26,"w":92,"h":32},
+	"sourceSize": {"w":100,"h":100}
+},
+"bolt_tesla_0003.png":
+{
+	"frame": {"x":284,"y":82,"w":92,"h":36},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":5,"y":24,"w":92,"h":36},
+	"sourceSize": {"w":100,"h":100}
+},
+"bolt_tesla_0004.png":
+{
+	"frame": {"x":606,"y":2,"w":90,"h":26},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":6,"y":33,"w":90,"h":26},
+	"sourceSize": {"w":100,"h":100}
+},
+"bolt_tesla_0005.png":
+{
+	"frame": {"x":190,"y":82,"w":92,"h":36},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":6,"y":32,"w":92,"h":36},
+	"sourceSize": {"w":100,"h":100}
+},
+"bolt_tesla_0006.png":
+{
+	"frame": {"x":514,"y":2,"w":90,"h":30},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":7,"y":33,"w":90,"h":30},
+	"sourceSize": {"w":100,"h":100}
+},
+"bolt_tesla_0007.png":
+{
+	"frame": {"x":378,"y":82,"w":92,"h":34},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":5,"y":29,"w":92,"h":34},
+	"sourceSize": {"w":100,"h":100}
+},
+"bolt_tesla_0008.png":
+{
+	"frame": {"x":2,"y":82,"w":92,"h":36},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":5,"y":27,"w":92,"h":36},
+	"sourceSize": {"w":100,"h":100}
+},
+"bolt_tesla_0009.png":
+{
+	"frame": {"x":472,"y":82,"w":94,"h":38},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":25,"w":94,"h":38},
+	"sourceSize": {"w":100,"h":100}
+},
+"bolt_tesla_0010.png":
+{
+	"frame": {"x":568,"y":82,"w":94,"h":38},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":26,"w":94,"h":38},
+	"sourceSize": {"w":100,"h":100}
+},
+"constructor_diffuse.png":
+{
+	"frame": {"x":406,"y":533,"w":256,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":256},
+	"sourceSize": {"w":256,"h":256}
+},
+"f_share.png":
+{
+	"frame": {"x":126,"y":126,"w":122,"h":42},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":122,"h":42},
+	"sourceSize": {"w":122,"h":42}
+},
+"fireball_0001.png":
+{
+	"frame": {"x":2,"y":2,"w":78,"h":74},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":7,"y":14,"w":78,"h":74},
+	"sourceSize": {"w":100,"h":100}
+},
+"fireball_0002.png":
+{
+	"frame": {"x":82,"y":2,"w":82,"h":76},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":14,"w":82,"h":76},
+	"sourceSize": {"w":100,"h":100}
+},
+"fireball_0003.png":
+{
+	"frame": {"x":252,"y":2,"w":84,"h":78},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":13,"w":84,"h":78},
+	"sourceSize": {"w":100,"h":100}
+},
+"fireball_0004.png":
+{
+	"frame": {"x":166,"y":2,"w":84,"h":78},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":13,"w":84,"h":78},
+	"sourceSize": {"w":100,"h":100}
+},
+"fireball_0005.png":
+{
+	"frame": {"x":426,"y":2,"w":86,"h":78},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":13,"w":86,"h":78},
+	"sourceSize": {"w":100,"h":100}
+},
+"fireball_0006.png":
+{
+	"frame": {"x":338,"y":2,"w":86,"h":78},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":13,"w":86,"h":78},
+	"sourceSize": {"w":100,"h":100}
+},
+"metal_scratch.jpg":
+{
+	"frame": {"x":608,"y":328,"w":200,"h":203},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":200,"h":203},
+	"sourceSize": {"w":200,"h":203}
+},
+"play.png":
+{
+	"frame": {"x":250,"y":126,"w":126,"h":128},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":0,"w":126,"h":128},
+	"sourceSize": {"w":128,"h":128}
+},
+"shield01Diff.png":
+{
+	"frame": {"x":204,"y":533,"w":200,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":200,"h":200},
+	"sourceSize": {"w":200,"h":200}
+},
+"shield02Diff.png":
+{
+	"frame": {"x":406,"y":328,"w":200,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":200,"h":200},
+	"sourceSize": {"w":200,"h":200}
+},
+"shield03Diff.png":
+{
+	"frame": {"x":204,"y":328,"w":200,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":200,"h":200},
+	"sourceSize": {"w":200,"h":200}
+},
+"shield04Diff.png":
+{
+	"frame": {"x":570,"y":126,"w":200,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":200,"h":200},
+	"sourceSize": {"w":200,"h":200}
+},
+"shield05Diff.png":
+{
+	"frame": {"x":2,"y":328,"w":200,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":200,"h":200},
+	"sourceSize": {"w":200,"h":200}
+},
+"sword_01_dif.png":
+{
+	"frame": {"x":378,"y":126,"w":190,"h":200},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":0,"w":190,"h":200},
+	"sourceSize": {"w":200,"h":200}
+},
+"t_share.png":
+{
+	"frame": {"x":664,"y":82,"w":122,"h":42},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":122,"h":42},
+	"sourceSize": {"w":122,"h":42}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "free atlas.png",
+	"format": "RGBA8888",
+	"size": {"w":810,"h":810},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:69f9c6cec7aaf68d2c8c06d68a3c7ebc$"
+}
+}
