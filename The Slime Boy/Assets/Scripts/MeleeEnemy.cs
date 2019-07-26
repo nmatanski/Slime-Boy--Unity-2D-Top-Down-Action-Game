@@ -17,12 +17,22 @@ public class MeleeEnemy : Enemy
     [SerializeField]
     private float attackSpeed;
 
+    [SerializeField]
+    private Ghost ghost;
+
+    private bool isFirstTime = true;
+
 
     // Update is called once per frame
     private void Update()
     {
+        if (isFirstTime)
+        {
+            ghost.EnemyStartPosition = StartPosition;
+            isFirstTime = false;
+        }
         stopDistance = Random.Range(stopDistanceMin, stopDistanceMax);
-        if (stopDistance > 6)
+        if (stopDistance >= stopDistanceMax)
         {
             stopDistance = Random.Range(stopDistanceMin, stopDistanceMax);
         }
@@ -31,6 +41,7 @@ public class MeleeEnemy : Enemy
             if (Vector2.Distance(transform.position, Player.position) > stopDistance)
             {
                 transform.position = Vector2.MoveTowards(transform.position, Player.position, Speed * Time.deltaTime);
+                ghost.IsMakingGhost = false;
             }
             else
             {
@@ -53,6 +64,7 @@ public class MeleeEnemy : Enemy
 
         while (percent <= 1)
         {
+            ghost.IsMakingGhost = true;
             percent += Time.deltaTime * attackSpeed;
             float interpolationParamter = 4 * (percent - Mathf.Pow(percent, 2)); // it gets points (values) from a parabole between 0 and 1
             transform.position = Vector2.Lerp(originalPosition, targetPosition, interpolationParamter);
