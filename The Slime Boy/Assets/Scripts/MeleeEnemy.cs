@@ -28,7 +28,10 @@ public class MeleeEnemy : Enemy
     {
         if (isFirstTime)
         {
-            ghost.EnemyStartPosition = StartPosition;
+            if (ghost != null) ///TODO: temp solution, the real solution is to change the summoner to have a Ghost variable in the inspector so it will get the prefab there
+            {
+                ghost.EnemyStartPosition = StartPosition;
+            }
             isFirstTime = false;
         }
         stopDistance = Random.Range(stopDistanceMin, stopDistanceMax);
@@ -41,14 +44,17 @@ public class MeleeEnemy : Enemy
             if (Vector2.Distance(transform.position, Player.position) > stopDistance)
             {
                 transform.position = Vector2.MoveTowards(transform.position, Player.position, Speed * Time.deltaTime);
-                ghost.IsMakingGhost = false;
+                if (ghost != null) ///TODO: delete this if after the solution above
+                {
+                    ghost.IsMakingGhost = false;
+                }
             }
             else
             {
                 if (Time.time >= attackTime)
                 {
-                    StartCoroutine(Attack());
                     attackTime = Time.time + TimeBetweenAttacks;
+                    StartCoroutine(Attack());
                 }
             }
         }
@@ -64,7 +70,10 @@ public class MeleeEnemy : Enemy
 
         while (percent <= 1)
         {
-            ghost.IsMakingGhost = true;
+            if (ghost != null) ///TODO: delete this if after the solution above
+            {
+                ghost.IsMakingGhost = true;
+            }
             percent += Time.deltaTime * attackSpeed;
             float interpolationParamter = 4 * (percent - Mathf.Pow(percent, 2)); // it gets points (values) from a parabole between 0 and 1
             transform.position = Vector2.Lerp(originalPosition, targetPosition, interpolationParamter);

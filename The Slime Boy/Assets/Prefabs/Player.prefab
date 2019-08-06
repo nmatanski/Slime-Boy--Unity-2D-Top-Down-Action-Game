@@ -2017,10 +2017,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 758038981, guid: 9a65aed9650fb5345827cdcb4ca62fdd, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 5229097639834809643, guid: 9a65aed9650fb5345827cdcb4ca62fdd,
         type: 3}
       propertyPath: m_Layer
@@ -2028,6 +2024,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5229097640428424848, guid: 9a65aed9650fb5345827cdcb4ca62fdd,
         type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 758038981, guid: 9a65aed9650fb5345827cdcb4ca62fdd, type: 3}
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}

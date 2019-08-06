@@ -30,11 +30,11 @@ public class Enemy : Character
 
     public Transform Player { get; set; }
 
-    public Vector3 StartPosition { get; set; }
+    public Vector3 StartPosition { get; set; } 
 
 
     // Start is called before the first frame update
-    private void Start()
+    public virtual void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player").transform;
         StartPosition = transform.position;
