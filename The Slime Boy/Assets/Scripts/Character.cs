@@ -11,28 +11,16 @@ public class Character : MonoBehaviour
     private bool areEnemiesKilled = false;
 
     [SerializeField]
+    private float speed;
+    public float Speed
+    {
+        get { return speed; }
+        set { speed = value; }
+    }
+
+    [SerializeField]
     private int health;
 
-
-    private static IEnumerator FlashInput(GameObject input, Color flashColor)
-    {
-        Color defaultColor = input.GetComponent<SpriteRenderer>().color;
-        for (int i = 0; i < 10; i++)
-        {
-            // if the current color is the default color - change it to the flash color
-            if (input.GetComponent<SpriteRenderer>().color == defaultColor)
-            {
-                input.GetComponent<SpriteRenderer>().color = flashColor;
-            }
-            else // otherwise change it back to the default color
-            {
-                input.GetComponent<SpriteRenderer>().color = defaultColor;
-            }
-            yield return new WaitForSeconds(.5f);
-        }
-        Destroy(input.gameObject, 1);
-        yield return new WaitForSeconds(1);
-    }
 
     public void TakeDamage(int damage)
     {
@@ -64,5 +52,25 @@ public class Character : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             StaticData.EnemyKilledCount = 0;
         }
+    }
+
+    private static IEnumerator FlashInput(GameObject input, Color flashColor)
+    {
+        Color defaultColor = input.GetComponent<SpriteRenderer>().color;
+        for (int i = 0; i < 10; i++)
+        {
+            // if the current color is the default color - change it to the flash color
+            if (input.GetComponent<SpriteRenderer>().color == defaultColor)
+            {
+                input.GetComponent<SpriteRenderer>().color = flashColor;
+            }
+            else // otherwise change it back to the default color
+            {
+                input.GetComponent<SpriteRenderer>().color = defaultColor;
+            }
+            yield return new WaitForSeconds(.5f);
+        }
+        Destroy(input.gameObject, 1);
+        yield return new WaitForSeconds(1);
     }
 }

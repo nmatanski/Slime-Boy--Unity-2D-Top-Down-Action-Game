@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430ce50ef4bde71439c42ad2e7c32e38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 300
+  health: 77
   speed: 15
 --- !u!50 &122646321994711494
 Rigidbody2D:
@@ -2027,6 +2027,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 5229097640448922256, guid: 9a65aed9650fb5345827cdcb4ca62fdd,
+        type: 3}
+      propertyPath: shotPoint
+      value: 
+      objectReference: {fileID: 5269993003355711655}
     - target: {fileID: 758038981, guid: 9a65aed9650fb5345827cdcb4ca62fdd, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -2036,6 +2041,12 @@ PrefabInstance:
 --- !u!4 &122646322880298357 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5229097640614482964, guid: 9a65aed9650fb5345827cdcb4ca62fdd,
+    type: 3}
+  m_PrefabInstance: {fileID: 5269993003944077665}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5269993003355711655 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 758038982, guid: 9a65aed9650fb5345827cdcb4ca62fdd,
     type: 3}
   m_PrefabInstance: {fileID: 5269993003944077665}
   m_PrefabAsset: {fileID: 0}

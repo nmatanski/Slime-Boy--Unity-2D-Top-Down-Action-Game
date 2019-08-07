@@ -12,9 +12,6 @@ public class Player : Character
 
     private int timer = 0;
 
-    [SerializeField]
-    private float speed;
-
 
     // Start is called before the first frame update
     private void Start()
@@ -27,7 +24,7 @@ public class Player : Character
     private void Update()
     {
         var moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        moveAmmount = moveInput.normalized * speed;
+        moveAmmount = moveInput.normalized * Speed;
 
         if (moveInput != Vector2.zero)
         {

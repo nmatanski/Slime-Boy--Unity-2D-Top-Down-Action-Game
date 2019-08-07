@@ -6,11 +6,6 @@ public class Ghost : MonoBehaviour
 {
     private float ghostDelaySeconds;
 
-    [SerializeField]
-    private float ghostDelay;
-
-    [SerializeField]
-    private GameObject ghost;
 
     [SerializeField]
     private bool isMakingGhost = false;
@@ -20,17 +15,25 @@ public class Ghost : MonoBehaviour
         set { isMakingGhost = value; }
     }
 
+
     public Vector3 EnemyStartPosition { get; set; }
 
 
+    [SerializeField]
+    private float ghostDelay;
+
+    [SerializeField]
+    private GameObject ghost;
+
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         ghostDelaySeconds = ghostDelay;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (!isMakingGhost)
         {

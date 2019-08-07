@@ -5,9 +5,10 @@ using UnityEngine;
 public class Summoner : Enemy
 {
     private Vector2 targetPosition;
+
     private Animator animator;
+
     private float summonTime;
-    private float timer;
 
 
     [SerializeField]
@@ -18,9 +19,6 @@ public class Summoner : Enemy
 
     [SerializeField]
     private float meleeAttackSpeed;
-
-    [SerializeField]
-    private float stopDistance;
 
     [SerializeField]
     private float minX;
@@ -49,6 +47,8 @@ public class Summoner : Enemy
 
     private void Update()
     {
+        //stopDistance = getStopDistance();
+
         if (Player != null)
         {
             if (Vector2.Distance(transform.position, targetPosition) > .5f)
@@ -66,13 +66,10 @@ public class Summoner : Enemy
                     animator.SetTrigger("summon");
                 }
             }
-            if (Vector2.Distance(transform.position, Player.position) < stopDistance)
+            if (Vector2.Distance(transform.position, Player.position) < StopDistance && Time.time >= AttackTime)
             {
-                if (Time.time >= timer)
-                {
-                    timer = Time.time + TimeBetweenAttacks;
-                    StartCoroutine(Attack());
-                }
+                AttackTime = Time.time + TimeBetweenAttacks;
+                StartCoroutine(Attack());
             }
         }
     }
@@ -89,18 +86,14 @@ public class Summoner : Enemy
         Player.GetComponent<Player>().TakeDamage(Damage);
 
         var originalPosition = transform.position;
-        var targetPosition = Player.position;
+        var target = Player.position;
         float percent = 0;
 
         while (percent <= 1)
         {
-            //if (ghost != null) ///TODO: delete this if after the solution above
-            //{
-            //    ghost.IsMakingGhost = true;
-            //}
             percent += Time.deltaTime * meleeAttackSpeed;
             float interpolationParamter = 4 * (percent - Mathf.Pow(percent, 2)); // it gets points (values) from a parabole between 0 and 1
-            transform.position = Vector2.Lerp(originalPosition, targetPosition, interpolationParamter);
+            transform.position = Vector2.Lerp(originalPosition, target, interpolationParamter);
 
             yield return null;
         }

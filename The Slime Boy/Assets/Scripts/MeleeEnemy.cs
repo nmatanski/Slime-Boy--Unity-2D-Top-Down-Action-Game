@@ -4,23 +4,14 @@ using UnityEngine;
 
 public class MeleeEnemy : Enemy
 {
-    private float attackTime;
+    private bool isFirstTime = true;
 
-    private float stopDistance;
-
-    [SerializeField]
-    private float stopDistanceMin;
-
-    [SerializeField]
-    private float stopDistanceMax;
 
     [SerializeField]
     private float attackSpeed;
 
     [SerializeField]
     private Ghost ghost;
-
-    private bool isFirstTime = true;
 
 
     // Update is called once per frame
@@ -34,14 +25,12 @@ public class MeleeEnemy : Enemy
             }
             isFirstTime = false;
         }
-        stopDistance = Random.Range(stopDistanceMin, stopDistanceMax);
-        if (stopDistance >= stopDistanceMax)
-        {
-            stopDistance = Random.Range(stopDistanceMin, stopDistanceMax);
-        }
+
+        //stopDistance = getStopDistance();
+
         if (Player != null)
         {
-            if (Vector2.Distance(transform.position, Player.position) > stopDistance)
+            if (Vector2.Distance(transform.position, Player.position) > StopDistance)
             {
                 transform.position = Vector2.MoveTowards(transform.position, Player.position, Speed * Time.deltaTime);
                 if (ghost != null) ///TODO: delete this if after the solution above
@@ -51,9 +40,9 @@ public class MeleeEnemy : Enemy
             }
             else
             {
-                if (Time.time >= attackTime)
+                if (Time.time >= AttackTime)
                 {
-                    attackTime = Time.time + TimeBetweenAttacks;
+                    AttackTime = Time.time + TimeBetweenAttacks;
                     StartCoroutine(Attack());
                 }
             }

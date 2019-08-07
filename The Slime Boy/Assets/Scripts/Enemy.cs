@@ -5,12 +5,23 @@ using UnityEngine;
 public class Enemy : Character
 {
     [SerializeField]
-    private float speed;
-    public float Speed
+    private float stopDistanceMin;
+
+    public float StopDistanceMin
     {
-        get { return speed; }
-        set { speed = value; }
+        get { return stopDistanceMin; }
+        set { stopDistanceMin = value; }
     }
+
+    [SerializeField]
+    private float stopDistanceMax;
+
+    public float StopDistanceMax
+    {
+        get { return stopDistanceMax; }
+        set { stopDistanceMax = value; }
+    }
+
 
     [SerializeField]
     private float timeBetweenAttacks;
@@ -28,9 +39,27 @@ public class Enemy : Character
         set { damage = value; }
     }
 
+    public float StopDistance
+    {
+        get
+        {
+            var stopDistance = Random.Range(StopDistanceMin, StopDistanceMax);
+            if (stopDistance >= StopDistanceMax)
+            {
+                Random.seed++; ///?
+                stopDistance = Random.Range(StopDistanceMin, StopDistanceMax);
+            }
+
+            return stopDistance;
+        }
+    }
+
+
+    public float AttackTime { get; set; } //timer
+
     public Transform Player { get; set; }
 
-    public Vector3 StartPosition { get; set; } 
+    public Vector3 StartPosition { get; set; }
 
 
     // Start is called before the first frame update
@@ -39,5 +68,4 @@ public class Enemy : Character
         Player = GameObject.FindGameObjectWithTag("Player").transform;
         StartPosition = transform.position;
     }
-
 }

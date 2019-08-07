@@ -131,7 +131,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 7804292fa530ea546b823644f009c3c8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -196,10 +196,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7361346c5a8787c48986bcf5d29e91b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
   health: 2
-  speed: 2
+  stopDistanceMin: 3
+  stopDistanceMax: 5
   timeBetweenAttacks: 3
   damage: 1
+  timeBetweenSummons: 5
+  enemyToSummon: {fileID: 0}
+  meleeAttackSpeed: 3
   minX: -42
   maxX: 42
   minY: -24.5
