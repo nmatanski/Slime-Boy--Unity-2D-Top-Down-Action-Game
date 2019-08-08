@@ -4,6 +4,6 @@ using UnityEngine;
 
 public static class StaticData
 {
-    public static int EnemyKilledCount { get; set; } = 0;
-    public static int EnemyCount { get; } = GameObject.Find("Melee Enemies").transform.childCount;
+    //public static int EnemyKilledCount { get; set; } = 0;
+    //public static int EnemyCount { get; } = GameObject.Find("Melee Enemies").transform.childCount;
 }
