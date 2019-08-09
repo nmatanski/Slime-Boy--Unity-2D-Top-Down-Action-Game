@@ -219,13 +219,19 @@ MonoBehaviour:
   waves:
   - enemies:
     - {fileID: 1693811310}
-    count: 2
+    count: 7
+    timeBetweenSpawns: 0
+  - enemies:
+    - {fileID: 274696278}
+    - {fileID: 955125630}
+    count: 10
     timeBetweenSpawns: 1
   - enemies:
     - {fileID: 274696278}
     - {fileID: 955125630}
-    count: 4
-    timeBetweenSpawns: 3
+    - {fileID: 643889000}
+    count: 15
+    timeBetweenSpawns: 4
   spawnPoints:
   - {fileID: 325126799}
   - {fileID: 218088705}
@@ -239,7 +245,7 @@ MonoBehaviour:
   - {fileID: 1727181250}
   - {fileID: 1828212643}
   - {fileID: 1638411621}
-  timeBetweenWaves: 3
+  timeBetweenWaves: 5
 --- !u!4 &318150797
 Transform:
   m_ObjectHideFlags: 0
@@ -604,6 +610,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1188653242333770675, guid: 99d0edebf7ca4e240aee7f5dcfb0f419,
         type: 3}
+      propertyPath: pickups.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1188653242333770675, guid: 99d0edebf7ca4e240aee7f5dcfb0f419,
+        type: 3}
       propertyPath: speed
       value: 1
       objectReference: {fileID: 0}
@@ -647,6 +658,16 @@ PrefabInstance:
       propertyPath: ghost
       value: 
       objectReference: {fileID: 643888999}
+    - target: {fileID: 1188653242333770675, guid: 99d0edebf7ca4e240aee7f5dcfb0f419,
+        type: 3}
+      propertyPath: pickups.Array.data[0]
+      value: 
+      objectReference: {fileID: 956194727}
+    - target: {fileID: 1188653242333770675, guid: 99d0edebf7ca4e240aee7f5dcfb0f419,
+        type: 3}
+      propertyPath: pickupChance
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 5457614344207230617, guid: 99d0edebf7ca4e240aee7f5dcfb0f419,
         type: 3}
       propertyPath: m_Length
@@ -686,6 +707,18 @@ MonoBehaviour:
   isMakingGhost: 0
   ghostDelay: 0.00001
   ghost: {fileID: 470611482941440100, guid: af9cb583e2d2d6c49a239380337907d6, type: 3}
+--- !u!114 &643889000 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1188653242333770675, guid: 99d0edebf7ca4e240aee7f5dcfb0f419,
+    type: 3}
+  m_PrefabInstance: {fileID: 643888996}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643888998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d74651b788ac40a449da18d9333cfaa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &736100529
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,6 +761,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ranged Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 1911972063, guid: 6f32c07b97c34f64d93d2216626ac8f5, type: 3}
+      propertyPath: pickups.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911972063, guid: 6f32c07b97c34f64d93d2216626ac8f5, type: 3}
+      propertyPath: stopDistanceMax
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911972063, guid: 6f32c07b97c34f64d93d2216626ac8f5, type: 3}
+      propertyPath: stopDistanceMin
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911972063, guid: 6f32c07b97c34f64d93d2216626ac8f5, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911972063, guid: 6f32c07b97c34f64d93d2216626ac8f5, type: 3}
+      propertyPath: damage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911972063, guid: 6f32c07b97c34f64d93d2216626ac8f5, type: 3}
+      propertyPath: pickupChance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911972063, guid: 6f32c07b97c34f64d93d2216626ac8f5, type: 3}
+      propertyPath: pickups.Array.data[0]
+      value: 
+      objectReference: {fileID: 956194727}
     - target: {fileID: 8182405114263165309, guid: 6f32c07b97c34f64d93d2216626ac8f5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -783,22 +844,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1911972063, guid: 6f32c07b97c34f64d93d2216626ac8f5, type: 3}
-      propertyPath: stopDistanceMax
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1911972063, guid: 6f32c07b97c34f64d93d2216626ac8f5, type: 3}
-      propertyPath: stopDistanceMin
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1911972063, guid: 6f32c07b97c34f64d93d2216626ac8f5, type: 3}
-      propertyPath: speed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1911972063, guid: 6f32c07b97c34f64d93d2216626ac8f5, type: 3}
-      propertyPath: damage
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f32c07b97c34f64d93d2216626ac8f5, type: 3}
 --- !u!4 &896121729 stripped
@@ -846,6 +891,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7361346c5a8787c48986bcf5d29e91b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &956194727 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7728036210613006578, guid: 8546e05f02fd5df47a4818a9426ffc74,
+    type: 3}
+  m_PrefabInstance: {fileID: 1298822640}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1039604982
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -915,6 +966,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8427059312350430933, guid: 1f31dcacb0cf1054aacd8ddf8306c1e3,
         type: 3}
+      propertyPath: pickups.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8427059312350430933, guid: 1f31dcacb0cf1054aacd8ddf8306c1e3,
+        type: 3}
       propertyPath: enemyToSummon
       value: 
       objectReference: {fileID: 2140055880}
@@ -953,6 +1009,16 @@ PrefabInstance:
       propertyPath: stopDistanceMin
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8427059312350430933, guid: 1f31dcacb0cf1054aacd8ddf8306c1e3,
+        type: 3}
+      propertyPath: pickupChance
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8427059312350430933, guid: 1f31dcacb0cf1054aacd8ddf8306c1e3,
+        type: 3}
+      propertyPath: pickups.Array.data[0]
+      value: 
+      objectReference: {fileID: 956194727}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f31dcacb0cf1054aacd8ddf8306c1e3, type: 3}
 --- !u!4 &1171675658 stripped
@@ -961,6 +1027,80 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 122646322981805002}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1298822640
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7728036210613006578, guid: 8546e05f02fd5df47a4818a9426ffc74,
+        type: 3}
+      propertyPath: m_Name
+      value: Levelup Pickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 7728036210613006572, guid: 8546e05f02fd5df47a4818a9426ffc74,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.498992
+      objectReference: {fileID: 0}
+    - target: {fileID: 7728036210613006572, guid: 8546e05f02fd5df47a4818a9426ffc74,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.9037066
+      objectReference: {fileID: 0}
+    - target: {fileID: 7728036210613006572, guid: 8546e05f02fd5df47a4818a9426ffc74,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 7728036210613006572, guid: 8546e05f02fd5df47a4818a9426ffc74,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7728036210613006572, guid: 8546e05f02fd5df47a4818a9426ffc74,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7728036210613006572, guid: 8546e05f02fd5df47a4818a9426ffc74,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7728036210613006572, guid: 8546e05f02fd5df47a4818a9426ffc74,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7728036210613006572, guid: 8546e05f02fd5df47a4818a9426ffc74,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7728036210613006572, guid: 8546e05f02fd5df47a4818a9426ffc74,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7728036210613006572, guid: 8546e05f02fd5df47a4818a9426ffc74,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7728036210613006572, guid: 8546e05f02fd5df47a4818a9426ffc74,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7728036210613006575, guid: 8546e05f02fd5df47a4818a9426ffc74,
+        type: 3}
+      propertyPath: weaponToUpgrade
+      value: 
+      objectReference: {fileID: 122646322981805003}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8546e05f02fd5df47a4818a9426ffc74, type: 3}
 --- !u!1 &1326876871
 GameObject:
   m_ObjectHideFlags: 0
@@ -1411,6 +1551,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1188653242333770675, guid: 99d0edebf7ca4e240aee7f5dcfb0f419,
         type: 3}
+      propertyPath: pickups.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1188653242333770675, guid: 99d0edebf7ca4e240aee7f5dcfb0f419,
+        type: 3}
       propertyPath: speed
       value: 3
       objectReference: {fileID: 0}
@@ -1442,7 +1587,7 @@ PrefabInstance:
     - target: {fileID: 1188653242333770675, guid: 99d0edebf7ca4e240aee7f5dcfb0f419,
         type: 3}
       propertyPath: stopDistanceMin
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1188653242333770675, guid: 99d0edebf7ca4e240aee7f5dcfb0f419,
         type: 3}
@@ -1454,6 +1599,16 @@ PrefabInstance:
       propertyPath: ghost
       value: 
       objectReference: {fileID: 1693811309}
+    - target: {fileID: 1188653242333770675, guid: 99d0edebf7ca4e240aee7f5dcfb0f419,
+        type: 3}
+      propertyPath: pickupChance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1188653242333770675, guid: 99d0edebf7ca4e240aee7f5dcfb0f419,
+        type: 3}
+      propertyPath: pickups.Array.data[0]
+      value: 
+      objectReference: {fileID: 956194727}
     - target: {fileID: 5457614344207230617, guid: 99d0edebf7ca4e240aee7f5dcfb0f419,
         type: 3}
       propertyPath: m_Length
@@ -2013,10 +2168,33 @@ PrefabInstance:
     - target: {fileID: 122646321994711495, guid: e1d3c0e6ec560d344a0d6b4a12a6d93f,
         type: 3}
       propertyPath: health
-      value: 7
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 122646323515882481, guid: e1d3c0e6ec560d344a0d6b4a12a6d93f,
+        type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 1695683100768100233, guid: 5b81f6c9a8d624146b2078e95e724a8b,
+        type: 3}
+    - target: {fileID: 122646323515882481, guid: e1d3c0e6ec560d344a0d6b4a12a6d93f,
+        type: 3}
+      propertyPath: level
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1d3c0e6ec560d344a0d6b4a12a6d93f, type: 3}
+--- !u!114 &122646322981805003 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 122646323515882481, guid: e1d3c0e6ec560d344a0d6b4a12a6d93f,
+    type: 3}
+  m_PrefabInstance: {fileID: 122646322981805002}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3e4783fd9652e542a45e8a27bd742b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2453335179001545005
 PrefabInstance:
   m_ObjectHideFlags: 0

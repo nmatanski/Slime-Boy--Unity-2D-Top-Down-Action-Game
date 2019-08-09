@@ -37,6 +37,18 @@ public class WaveSpawner : MonoBehaviour
             if (currentWaveIndex + 1 < waves.Count)
             {
                 currentWaveIndex++;
+                //change background color
+                var bg = GameObject.FindGameObjectWithTag("Background");
+                switch (currentWaveIndex)
+                {
+                    case 1:
+                        bg.GetComponent<SpriteRenderer>().color = Color.green;
+                        break;
+                    case 2:
+                        bg.GetComponent<SpriteRenderer>().color = Color.blue;
+                        break;
+                }
+                //end
                 StartCoroutine(StartNextWave(currentWaveIndex));
             }
             else

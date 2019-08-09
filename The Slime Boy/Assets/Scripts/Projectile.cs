@@ -16,11 +16,14 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     private int damage;
 
+    //public Vector3 Angle { get; set; }
+
 
     // Start is called before the first frame update
     private void Start()
     {
         Invoke("DestroyProjectile", lifeSpan);
+        //transform.Rotate(Angle);
     }
 
     // Update is called once per frame
@@ -29,7 +32,7 @@ public class Projectile : MonoBehaviour
         transform.Translate(Vector2.up * speed * Time.deltaTime);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision) ///TODO: this could lead to execution of the TakeDamage method more than once if more than 1 projectile hit an enemy at the same time
     {
         if (collision.tag == "Enemy")
         {

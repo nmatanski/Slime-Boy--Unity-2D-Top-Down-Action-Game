@@ -41,6 +41,10 @@ public class RangedEnemy : Enemy
 
     public void RangedAttack()
     {
+        if (Player == null)
+        {
+            return;
+        }
         var direction = Player.position - shotPoint.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         var rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
