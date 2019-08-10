@@ -83,7 +83,7 @@ public class Summoner : Enemy
     }
     private IEnumerator Attack()
     {
-        Player.GetComponent<Player>().TakeDamage(Damage);
+        Player.GetComponent<Player>().DealDamage(Damage);
 
         var originalPosition = transform.position;
         var target = Player.position;

@@ -37,7 +37,7 @@ public class EnemyBullet : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            playerScript.TakeDamage(damage);
+            playerScript.DealDamage(damage);
             Destroy(gameObject);
         }
     }

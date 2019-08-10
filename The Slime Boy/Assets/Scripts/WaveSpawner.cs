@@ -6,6 +6,7 @@ public class WaveSpawner : MonoBehaviour
 {
     private Wave currentWave;
 
+    [SerializeField]
     private int currentWaveIndex;
 
     private Transform player;
@@ -46,6 +47,15 @@ public class WaveSpawner : MonoBehaviour
                         break;
                     case 2:
                         bg.GetComponent<SpriteRenderer>().color = Color.blue;
+                        break;
+                    case 3:
+                        bg.GetComponent<SpriteRenderer>().color = Color.cyan;
+                        break;
+                    case 4:
+                        bg.GetComponent<SpriteRenderer>().color = new Color(255, 60, 187); // deep pink
+                        break;
+                    case 5:
+                        bg.GetComponent<SpriteRenderer>().color = new Color(15, 165, 140);
                         break;
                 }
                 //end

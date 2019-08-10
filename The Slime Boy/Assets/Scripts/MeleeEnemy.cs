@@ -51,7 +51,7 @@ public class MeleeEnemy : Enemy
 
     private IEnumerator Attack()
     {
-        Player.GetComponent<Player>().TakeDamage(Damage);
+        Player.GetComponent<Player>().DealDamage(Damage);
 
         var originalPosition = transform.position;
         var targetPosition = Player.position;

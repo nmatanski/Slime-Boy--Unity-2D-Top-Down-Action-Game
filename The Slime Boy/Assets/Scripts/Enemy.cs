@@ -61,11 +61,56 @@ public class Enemy : Character
 
     public Vector3 StartPosition { get; set; }
 
+    [SerializeField]
+    private int pickupChance;
+
+    [SerializeField]
+    private List<GameObject> pickups;
+
+    [SerializeField]
+    private int healthPickupChance;
+
+    [SerializeField]
+    private GameObject healthPickup;
+
 
     // Start is called before the first frame update
     public virtual void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player").transform;
         StartPosition = transform.position;
+        MaxHealth = Health;
+    }
+
+    public override void DealDamage(int damage)
+    {
+        Health = Mathf.Clamp(Health - damage, 0, 9999);
+        if (Health == 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnDestroy() // use this method for things you want to lock to execute only once per object's life (at its end)
+    {
+        int randomNumer = Random.Range(0, 101);
+        bool hasPickup = false;
+        GameObject randomPickup = null;
+        if (randomNumer < pickupChance)
+        {
+            randomPickup = pickups[Random.Range(0, pickups.Count)];
+            hasPickup = true;
+        }
+
+        int randomHealth = Random.Range(0, 101);
+        if (randomHealth < healthPickupChance)
+        {
+            Instantiate(healthPickup, transform.position, transform.rotation);
+        }
+        else if (hasPickup) // if there is a pickup and health pickup it will give the health pickup, but not the other one
+        {
+            Instantiate(randomPickup, transform.position, transform.rotation).SetActive(true);
+        }
+
     }
 }
