@@ -1457,6 +1457,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5659361517961999769, guid: 0553a42db5167ae4681b9d8fb69ac31a,
         type: 3}
+    - target: {fileID: 8427059312350430933, guid: 1f31dcacb0cf1054aacd8ddf8306c1e3,
+        type: 3}
+      propertyPath: meleeAttackSpeed
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f31dcacb0cf1054aacd8ddf8306c1e3, type: 3}
 --- !u!1 &1106106353 stripped

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Enemy : Character
 {
+    private Vector3 position;
+    private Quaternion rotation;
+
     [SerializeField]
     private float stopDistanceMin;
 
@@ -87,6 +90,8 @@ public class Enemy : Character
         Health = Mathf.Clamp(Health - damage, 0, 9999);
         if (Health == 0)
         {
+            position = transform.position;
+            rotation = transform.rotation;
             Destroy(gameObject);
         }
     }
@@ -105,11 +110,11 @@ public class Enemy : Character
         int randomHealth = Random.Range(0, 101);
         if (randomHealth < healthPickupChance)
         {
-            Instantiate(healthPickup, transform.position, transform.rotation);
+            Instantiate(healthPickup, position, rotation);
         }
         else if (hasPickup) // if there is a pickup and health pickup it will give the health pickup, but not the other one
         {
-            Instantiate(randomPickup, transform.position, transform.rotation).SetActive(true);
+            Instantiate(randomPickup, position, rotation).SetActive(true);
         }
 
     }
