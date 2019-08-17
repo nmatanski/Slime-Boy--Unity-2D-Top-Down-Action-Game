@@ -78,7 +78,16 @@ public class Summoner : Enemy
     {
         if (Player != null)
         {
-            Instantiate(enemyToSummon, transform.position, transform.rotation);
+            try
+            {
+                Instantiate(enemyToSummon, transform.position, transform.rotation);
+            }
+            catch (System.ArgumentException)
+            {
+                Instantiate(GameObject.Find("Spiked Enemy (1)"), transform.position, transform.rotation);
+                throw;
+            }
+            
         }
     }
     private IEnumerator Attack()

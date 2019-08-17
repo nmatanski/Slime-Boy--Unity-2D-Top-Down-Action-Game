@@ -17,7 +17,7 @@ public class HealthPickup : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && player != null)
         {
             player.Heal(healAmount);
             Destroy(gameObject);

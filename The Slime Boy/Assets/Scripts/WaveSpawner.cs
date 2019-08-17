@@ -6,7 +6,6 @@ public class WaveSpawner : MonoBehaviour
 {
     private Wave currentWave;
 
-    [SerializeField]
     private int currentWaveIndex;
 
     private Transform player;
@@ -22,6 +21,12 @@ public class WaveSpawner : MonoBehaviour
 
     [SerializeField]
     private float timeBetweenWaves;
+
+    [SerializeField]
+    private GameObject boss;
+
+    [SerializeField]
+    private Transform bossSpawnPoint; // at the center of the camera
 
 
     private void Start()
@@ -63,6 +68,9 @@ public class WaveSpawner : MonoBehaviour
             }
             else
             {
+                var spawnPoint = bossSpawnPoint.position;
+                spawnPoint.z = 0;
+                Instantiate(boss, spawnPoint, bossSpawnPoint.rotation);
                 Debug.Log("Game Over");
                 Character.FlashInput(Color.green);
             }
