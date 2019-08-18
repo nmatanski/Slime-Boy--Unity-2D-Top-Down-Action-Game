@@ -72,6 +72,7 @@ MonoBehaviour:
   - {fileID: 1911972063, guid: 6f32c07b97c34f64d93d2216626ac8f5, type: 3}
   - {fileID: 8427059312350430933, guid: 1f31dcacb0cf1054aacd8ddf8306c1e3, type: 3}
   spawnOffset: 1
+  damage: 2
 --- !u!61 &2435842140479988725
 BoxCollider2D:
   m_ObjectHideFlags: 0

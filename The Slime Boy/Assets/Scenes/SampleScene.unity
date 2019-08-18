@@ -1499,6 +1499,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8427059312350430933, guid: 1f31dcacb0cf1054aacd8ddf8306c1e3,
         type: 3}
+      propertyPath: pickups.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8427059312350430933, guid: 1f31dcacb0cf1054aacd8ddf8306c1e3,
+        type: 3}
       propertyPath: pickups.Array.data[0]
       value: 
       objectReference: {fileID: 956194727}
@@ -1507,6 +1512,11 @@ PrefabInstance:
       propertyPath: enemyToSummon
       value: 
       objectReference: {fileID: 2140055880}
+    - target: {fileID: 8427059312350430933, guid: 1f31dcacb0cf1054aacd8ddf8306c1e3,
+        type: 3}
+      propertyPath: pickupChance
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f31dcacb0cf1054aacd8ddf8306c1e3, type: 3}
 --- !u!1 &1106106353 stripped
@@ -4303,7 +4313,7 @@ MonoBehaviour:
   stopDistanceMax: 5
   timeBetweenAttacks: 30
   damage: 8
-  pickupChance: 33
+  pickupChance: 10
   pickups:
   - {fileID: 956194727}
   healthPickupChance: 66

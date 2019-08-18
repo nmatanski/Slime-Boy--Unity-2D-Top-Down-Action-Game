@@ -20,6 +20,9 @@ public class Boss : MonoBehaviour
     [SerializeField]
     private float spawnOffset;
 
+    [SerializeField]
+    private int damage;
+
 
     private void Start()
     {
@@ -45,5 +48,13 @@ public class Boss : MonoBehaviour
         offset *= 1 + Random.value;
 
         Instantiate(randomEnemy, transform.position + new Vector3(offset, offset, 0), transform.rotation);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            collision.GetComponent<Player>().DealDamage(damage);
+        }
     }
 }
