@@ -23,6 +23,9 @@ public class Boss : MonoBehaviour
     [SerializeField]
     private int damage;
 
+    [SerializeField]
+    private GameObject shockwave;
+
 
     private void Start()
     {
@@ -48,6 +51,12 @@ public class Boss : MonoBehaviour
         offset *= 1 + Random.value;
 
         Instantiate(randomEnemy, transform.position + new Vector3(offset, offset, 0), transform.rotation);
+    }
+
+    public void SpawnShockwave()
+    {
+        var boss = gameObject.transform;
+        Destroy(Instantiate(shockwave, boss.position, boss.rotation), .2f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

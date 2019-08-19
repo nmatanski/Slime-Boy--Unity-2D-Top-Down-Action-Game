@@ -16,7 +16,9 @@ public class Player : Character
 
     private int timer = 0;
 
-    
+    private int damageAmount;
+
+
     [SerializeField]
     private Animator hurtAnimator;
 
@@ -37,6 +39,8 @@ public class Player : Character
 
     [SerializeField]
     private Sprite emptyHeart;
+
+    public bool IsHitByShockwave { get; set; } = false;
 
 
     // Start is called before the first frame update
@@ -150,22 +154,10 @@ public class Player : Character
         }
     }
 
-    public override void DealDamage(int damage)
+    public override void DealDamage(int damage) ///TODO: Add override keyword, but add it to the Character's DealDamage, then fix it in the Enemy class
     {
-        Health = Mathf.Clamp(Health - damage, 0, 9999);
-
-        UpdateHealthUI(Health);
-
-        hurtAnimator.SetTrigger("hurt");
-        cameraAnimator.SetTrigger("shake");
-
-        if (Health == 0)
-        {
-            ///TODO: temporary restart
-            StartCoroutine(RestartLevel(3f));
-            //Destroy(gameObject); //add this
-            ///end
-        }
+        damageAmount = damage;
+        StartCoroutine(DealDamage());
     }
 
     public override void Heal(int healAmount)
@@ -179,5 +171,32 @@ public class Player : Character
         yield return new WaitForSeconds(delay);
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
         Destroy(gameObject);
+    }
+
+    private IEnumerator DealDamage()
+    {
+        Health = Mathf.Clamp(Health - damageAmount, 0, 9999);
+
+        UpdateHealthUI(Health);
+
+        Debug.Log(IsHitByShockwave.ToString());
+        if (IsHitByShockwave)
+        {
+            Debug.Log("\n\n\n\tHit by Shockwave");
+            yield return new WaitForSeconds(.1f); ///TODO: It should be .2f but the player will "visible"
+            IsHitByShockwave = false;
+            Debug.Log("\n\t\tHurtPanel happens now!");
+        }
+
+        hurtAnimator.SetTrigger("hurt");
+        cameraAnimator.SetTrigger("shake");
+
+        if (Health == 0)
+        {
+            ///TODO: temporary restart
+            StartCoroutine(RestartLevel(3f));
+            //Destroy(gameObject); //add this
+            ///end
+        }
     }
 }
