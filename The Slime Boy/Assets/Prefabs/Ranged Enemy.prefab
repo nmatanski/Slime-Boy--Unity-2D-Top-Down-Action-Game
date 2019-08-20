@@ -558,6 +558,8 @@ MonoBehaviour:
   healthPickupChance: 7
   healthPickup: {fileID: 5659361517961999769, guid: 0553a42db5167ae4681b9d8fb69ac31a,
     type: 3}
+  deathEffect: {fileID: 6840238628344867750, guid: 324a263672a71a648a620a6f96234653,
+    type: 3}
   shotPoint: {fileID: 6638262496342311523}
   enemyBullet: {fileID: 898775210829440477, guid: 24d1e9abcc6f9794292316b66ec98f89,
     type: 3}

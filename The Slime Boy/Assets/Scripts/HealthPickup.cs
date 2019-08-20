@@ -9,6 +9,9 @@ public class HealthPickup : MonoBehaviour
     [SerializeField]
     private int healAmount;
 
+    [SerializeField]
+    private GameObject pickupEffect;
+
 
     private void Start()
     {
@@ -19,6 +22,8 @@ public class HealthPickup : MonoBehaviour
     {
         if (collision.tag == "Player" && player != null)
         {
+            Instantiate(pickupEffect, transform.position, Quaternion.identity);
+
             player.Heal(healAmount);
             Destroy(gameObject);
         }

@@ -75,6 +75,8 @@ MonoBehaviour:
   damage: 2
   shockwave: {fileID: 7058410876468490077, guid: 9068732625be8bb44a0376192ecf39c0,
     type: 3}
+  deathEffect: {fileID: 74779991492583763, guid: 116d23e5498b496489c06746c7c13ea1,
+    type: 3}
 --- !u!61 &2435842140479988725
 BoxCollider2D:
   m_ObjectHideFlags: 0

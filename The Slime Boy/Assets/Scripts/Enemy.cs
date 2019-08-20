@@ -108,9 +108,9 @@ public class Enemy : Character
         int randomNumer = Random.Range(0, 101);
         bool hasPickup = false;
         GameObject randomPickup = null;
-        if (randomNumer < pickupChance)
+        if (randomNumer < pickupChance && pickups != null)
         {
-            randomPickup = pickups[Random.Range(0, pickups.Count)];
+            randomPickup = pickups[Random.Range(0, pickups.Count-1)];
             hasPickup = true;
         }
 

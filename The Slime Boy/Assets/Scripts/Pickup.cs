@@ -11,6 +11,10 @@ public class Pickup : MonoBehaviour
     [Range(1, 6)]
     private int levelupValue = 1;
 
+    [SerializeField]
+    private GameObject pickupEffect;
+
+
     //private void Start()
     //{
     //    Debug.Log($"pickups on the map: {GameObject.FindGameObjectsWithTag("Pickup").Length}");
@@ -29,6 +33,8 @@ public class Pickup : MonoBehaviour
             Debug.Log($"Level: {weaponToUpgrade.Level}");
             if (weaponToUpgrade.Level + levelupValue < 8)
             {
+                Instantiate(pickupEffect, transform.position, Quaternion.identity);
+
                 weaponToUpgrade.Level += levelupValue;
             }
             Debug.Log($"Levelup to {weaponToUpgrade.Level}");

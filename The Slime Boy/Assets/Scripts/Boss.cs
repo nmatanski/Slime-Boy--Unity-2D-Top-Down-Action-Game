@@ -26,6 +26,9 @@ public class Boss : MonoBehaviour
     [SerializeField]
     private GameObject shockwave;
 
+    [SerializeField]
+    private GameObject deathEffect;
+
 
     private void Start()
     {
@@ -38,6 +41,8 @@ public class Boss : MonoBehaviour
         health = Mathf.Clamp(health - damage, 0, 9999);
         if (health == 0)
         {
+            Instantiate(deathEffect, transform.position, Quaternion.identity);
+
             Destroy(gameObject);
         }
 
@@ -57,6 +62,8 @@ public class Boss : MonoBehaviour
     {
         var boss = gameObject.transform;
         Destroy(Instantiate(shockwave, boss.position, boss.rotation), .2f);
+
+        Camera.main.GetComponent<Animator>().SetTrigger("shake");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
