@@ -76,6 +76,9 @@ public class Enemy : Character
     [SerializeField]
     private GameObject healthPickup;
 
+    [SerializeField]
+    private GameObject deathEffect;
+
 
     // Start is called before the first frame update
     public virtual void Start()
@@ -92,6 +95,10 @@ public class Enemy : Character
         {
             position = transform.position;
             rotation = transform.rotation;
+
+            var deathParticles = Instantiate(deathEffect, transform.position, Quaternion.identity).GetComponent<ParticleSystem>().main;
+            deathParticles.simulationSpeed = 3f;
+
             Destroy(gameObject);
         }
     }

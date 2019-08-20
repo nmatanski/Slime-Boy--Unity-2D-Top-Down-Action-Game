@@ -209,7 +209,7 @@ MonoBehaviour:
   waves:
   - enemies:
     - {fileID: 1965650267}
-    count: 3
+    count: 30
     timeBetweenSpawns: 2
   spawnPoints:
   - {fileID: 325126799}
@@ -1745,7 +1745,7 @@ PrefabInstance:
     - target: {fileID: 7728036210613006572, guid: 8546e05f02fd5df47a4818a9426ffc74,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7728036210613006572, guid: 8546e05f02fd5df47a4818a9426ffc74,
         type: 3}
@@ -2244,7 +2244,7 @@ Transform:
   - {fileID: 1828212643}
   - {fileID: 1638411621}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1604308060 stripped
 Transform:
@@ -3652,6 +3652,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5659361517961999769, guid: 0553a42db5167ae4681b9d8fb69ac31a,
         type: 3}
+    - target: {fileID: 1188653242333770675, guid: 99d0edebf7ca4e240aee7f5dcfb0f419,
+        type: 3}
+      propertyPath: deathEffect
+      value: 
+      objectReference: {fileID: 6840238628344867750, guid: 324a263672a71a648a620a6f96234653,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99d0edebf7ca4e240aee7f5dcfb0f419, type: 3}
 --- !u!4 &1965650264 stripped
@@ -4319,6 +4325,7 @@ MonoBehaviour:
   healthPickupChance: 66
   healthPickup: {fileID: 5659361517961999769, guid: 0553a42db5167ae4681b9d8fb69ac31a,
     type: 3}
+  deathEffect: {fileID: 0}
   timeBetweenSummons: 10
   enemyToSummon: {fileID: 1356929528}
   meleeAttackSpeed: 10
@@ -4447,6 +4454,26 @@ PrefabInstance:
         type: 3}
       propertyPath: orthographic size
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2453335178906368338, guid: 7b8b110605d11074982e1c177383b3c2,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2453335178906368338, guid: 7b8b110605d11074982e1c177383b3c2,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2453335178906368338, guid: 7b8b110605d11074982e1c177383b3c2,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2453335178906368338, guid: 7b8b110605d11074982e1c177383b3c2,
+        type: 3}
+      propertyPath: m_ClearFlags
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b8b110605d11074982e1c177383b3c2, type: 3}
@@ -5147,6 +5174,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background
       objectReference: {fileID: 0}
+    - target: {fileID: 8356958123094451254, guid: 4e5c0812175659a4d93349dc1188f094,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8356958123094451248, guid: 4e5c0812175659a4d93349dc1188f094,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5221,6 +5253,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8356958123094451255, guid: 4e5c0812175659a4d93349dc1188f094,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8356958123094451255, guid: 4e5c0812175659a4d93349dc1188f094,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -32768
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e5c0812175659a4d93349dc1188f094, type: 3}
