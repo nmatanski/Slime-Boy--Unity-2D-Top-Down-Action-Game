@@ -18,6 +18,8 @@ public class Player : Character
 
     private int damageAmount;
 
+    private bool isInvulnerable = false;
+
 
     [SerializeField]
     private Animator hurtAnimator;
@@ -175,6 +177,11 @@ public class Player : Character
 
     private IEnumerator DealDamage()
     {
+        if (isInvulnerable)
+        {
+            yield break;
+        }
+
         Health = Mathf.Clamp(Health - damageAmount, 0, 9999);
 
         UpdateHealthUI(Health);
@@ -191,6 +198,8 @@ public class Player : Character
         hurtAnimator.SetTrigger("hurt");
         cameraAnimator.SetTrigger("shake");
 
+        StartCoroutine(GetInvulnerability());
+
         if (Health == 0)
         {
             ///TODO: temporary restart
@@ -198,5 +207,12 @@ public class Player : Character
             //Destroy(gameObject); //add this
             ///end
         }
+    }
+
+    private IEnumerator GetInvulnerability()
+    {
+        isInvulnerable = true;
+        yield return new WaitForSeconds(.2f);
+        isInvulnerable = false;
     }
 }

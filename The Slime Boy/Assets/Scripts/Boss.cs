@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
-    [HideInInspector]
     private float halfHealth;
 
-    [HideInInspector]
     private Animator animator;
+
+    private bool isInvulnerable = false;
 
 
     [SerializeField]
@@ -38,24 +38,32 @@ public class Boss : MonoBehaviour
 
     public void DealDamage(int damage)
     {
-        health = Mathf.Clamp(health - damage, 0, 9999);
-        if (health == 0)
+        float iSeconds = 5f;
+        if (!isInvulnerable)
         {
-            Instantiate(deathEffect, transform.position, Quaternion.identity);
+            health = Mathf.Clamp(health - damage, 0, 9999);
+            if (health == 0)
+            {
+                Instantiate(deathEffect, transform.position, Quaternion.identity);
 
-            Destroy(gameObject);
+                Destroy(gameObject);
+            }
+
+            if (health <= halfHealth)
+            {
+                animator.SetTrigger("phase2");
+            }
+            iSeconds = 1f;
         }
 
-        if (health <= halfHealth)
-        {
-            animator.SetTrigger("phase2");
-        }
 
         var randomEnemy = enemies[Random.Range(0, enemies.Count)];
         float offset = Random.value > 0.5f ? spawnOffset : -spawnOffset;
         offset *= 1 + Random.value;
 
         Instantiate(randomEnemy, transform.position + new Vector3(offset, offset, 0), transform.rotation);
+
+        StartCoroutine(GetInvulnerability(iSeconds));
     }
 
     public void SpawnShockwave()
@@ -72,5 +80,12 @@ public class Boss : MonoBehaviour
         {
             collision.GetComponent<Player>().DealDamage(damage);
         }
+    }
+
+    private IEnumerator GetInvulnerability(float iSeconds)
+    {
+        isInvulnerable = true;
+        yield return new WaitForSeconds(iSeconds);
+        isInvulnerable = false;
     }
 }

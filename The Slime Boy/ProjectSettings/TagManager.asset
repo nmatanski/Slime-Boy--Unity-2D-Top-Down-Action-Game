@@ -10,6 +10,8 @@ TagManager:
   - Pickup
   - PatrolPoint
   - Boss
+  - Projectile
+  - TempEnemy
   layers:
   - Default
   - TransparentFX
@@ -23,8 +25,8 @@ TagManager:
   - Enemy
   - Stopper
   - Boss
-  - 
-  - 
+  - Projectile
+  - TempEnemy
   - 
   - 
   - 
