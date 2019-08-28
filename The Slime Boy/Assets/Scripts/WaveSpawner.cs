@@ -6,6 +6,7 @@ public class WaveSpawner : MonoBehaviour
 {
     private Wave currentWave;
 
+    [SerializeField] ///TODO: for test
     private int currentWaveIndex;
 
     private Transform player;
@@ -47,21 +48,21 @@ public class WaveSpawner : MonoBehaviour
                 var bg = GameObject.FindGameObjectWithTag("Background");
                 switch (currentWaveIndex)
                 {
-                    case 1:
-                        bg.GetComponent<SpriteRenderer>().color = Color.green;
-                        break;
-                    case 2:
+                    //case 1:
+                    //    bg.GetComponent<SpriteRenderer>().color = Color.green;
+                    //    break;
+                    case 15:
                         bg.GetComponent<SpriteRenderer>().color = Color.blue;
                         break;
-                    case 3:
+                    case 14:
                         bg.GetComponent<SpriteRenderer>().color = Color.cyan;
                         break;
-                    case 4:
+                    case 18:
                         bg.GetComponent<SpriteRenderer>().color = new Color(255, 60, 187); // deep pink
                         break;
-                    case 5:
-                        bg.GetComponent<SpriteRenderer>().color = new Color(15, 165, 140);
-                        break;
+                    //case 5:
+                    //    bg.GetComponent<SpriteRenderer>().color = new Color(15, 165, 140);
+                    //    break;
                 }
                 //end
                 StartCoroutine(StartNextWave(currentWaveIndex));

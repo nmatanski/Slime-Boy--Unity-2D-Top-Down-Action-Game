@@ -10,6 +10,8 @@ public class Boss : MonoBehaviour
 
     private bool isInvulnerable = false;
 
+    private bool isIntro = true;
+
 
     [SerializeField]
     private int health;
@@ -70,8 +72,27 @@ public class Boss : MonoBehaviour
     {
         var boss = gameObject.transform;
         Destroy(Instantiate(shockwave, boss.position, boss.rotation), .2f);
+        ShakeScreen();
+    }
 
-        Camera.main.GetComponent<Animator>().SetTrigger("shake");
+    public void ShakeScreen()
+    {
+        float chance;
+        if (isIntro)
+        {
+            chance = 1f;
+            isIntro = false;
+        }
+        else
+        {
+            chance = .1f;
+        }
+
+        if (Random.value < chance)
+        {
+            Debug.Log(chance);
+            Camera.main.GetComponent<Animator>().SetTrigger("shake");
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
