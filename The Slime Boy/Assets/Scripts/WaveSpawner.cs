@@ -34,8 +34,6 @@ public class WaveSpawner : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         StartCoroutine(StartNextWave(currentWaveIndex));
-
-        hasFinishedSpawning = true;
     }
 
     private void Update()
