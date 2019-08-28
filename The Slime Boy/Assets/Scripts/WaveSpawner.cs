@@ -6,6 +6,7 @@ public class WaveSpawner : MonoBehaviour
 {
     private Wave currentWave;
 
+    [SerializeField]
     private int currentWaveIndex;
 
     private Transform player;
@@ -33,6 +34,8 @@ public class WaveSpawner : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         StartCoroutine(StartNextWave(currentWaveIndex));
+
+        hasFinishedSpawning = true;
     }
 
     private void Update()
@@ -40,7 +43,8 @@ public class WaveSpawner : MonoBehaviour
         if (hasFinishedSpawning && GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
         {
             hasFinishedSpawning = false;
-            if (currentWaveIndex < waves.Count) // index + 1 < waves.count ??
+
+            if (currentWaveIndex + 1 < waves.Count) // index + 1 < waves.count ??
             {
                 currentWaveIndex++;
                 //change background color
@@ -70,7 +74,7 @@ public class WaveSpawner : MonoBehaviour
             {
                 var spawnPoint = bossSpawnPoint.position;
                 spawnPoint.z = 0;
-                Instantiate(boss, spawnPoint, bossSpawnPoint.rotation);
+                Instantiate(boss, spawnPoint, bossSpawnPoint.rotation).SetActive(true);
                 Debug.Log("Game Over");
                 Character.FlashInput(Color.green);
             }
@@ -103,9 +107,9 @@ public class WaveSpawner : MonoBehaviour
             yield return new WaitForSeconds(currentWave.TimeBetweenSpawns);
         }
 
-        if (waveIndex + 1 == waves.Count)
-        {
-            hasFinishedSpawning = true;
-        }
+        //if (waveIndex + 1 == waves.Count)
+        //{
+        //    hasFinishedSpawning = true;
+        //}
     }
 }
