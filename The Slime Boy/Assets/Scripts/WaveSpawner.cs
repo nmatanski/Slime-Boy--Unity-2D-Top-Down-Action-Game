@@ -6,7 +6,6 @@ public class WaveSpawner : MonoBehaviour
 {
     private Wave currentWave;
 
-    [SerializeField] ///TODO: for test
     private int currentWaveIndex;
 
     private Transform player;
@@ -41,7 +40,7 @@ public class WaveSpawner : MonoBehaviour
         if (hasFinishedSpawning && GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
         {
             hasFinishedSpawning = false;
-            if (currentWaveIndex + 1 < waves.Count)
+            if (currentWaveIndex < waves.Count) // index + 1 < waves.count ??
             {
                 currentWaveIndex++;
                 //change background color
@@ -51,13 +50,13 @@ public class WaveSpawner : MonoBehaviour
                     //case 1:
                     //    bg.GetComponent<SpriteRenderer>().color = Color.green;
                     //    break;
-                    case 15:
+                    case 14:
                         bg.GetComponent<SpriteRenderer>().color = Color.blue;
                         break;
-                    case 14:
+                    case 11:
                         bg.GetComponent<SpriteRenderer>().color = Color.cyan;
                         break;
-                    case 18:
+                    case 16:
                         bg.GetComponent<SpriteRenderer>().color = new Color(255, 60, 187); // deep pink
                         break;
                     //case 5:
@@ -102,6 +101,11 @@ public class WaveSpawner : MonoBehaviour
             hasFinishedSpawning = i == currentWave.Count - 1;
 
             yield return new WaitForSeconds(currentWave.TimeBetweenSpawns);
+        }
+
+        if (waveIndex + 1 == waves.Count)
+        {
+            hasFinishedSpawning = true;
         }
     }
 }
