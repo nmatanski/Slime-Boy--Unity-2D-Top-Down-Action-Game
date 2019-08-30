@@ -55,8 +55,16 @@ public class PatrolBehaviour : StateMachineBehaviour
             }
             randomPointPosition = patrolPoints[closestPointIndex].transform.position; //not random but closest
 
-            isSmart = true;
-            Debug.Log("SMART SMART SMART");
+            if (Random.value < .5f || !isSmart)
+            {
+                isSmart = true;
+                Debug.Log("SMART SMART SMART");
+            }
+            else
+            {
+                isSmart = false;
+                Debug.Log("I'm so dumb, smaaaall brain, dumb-dumb. owo");
+            }
         }
         else
         {

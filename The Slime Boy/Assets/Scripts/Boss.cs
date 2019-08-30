@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Boss : MonoBehaviour
@@ -9,6 +10,8 @@ public class Boss : MonoBehaviour
     private Animator animator;
 
     private bool isInvulnerable = false;
+
+    private TextMeshProUGUI tooltip;
 
     private bool isIntro = true;
 
@@ -36,6 +39,8 @@ public class Boss : MonoBehaviour
     {
         halfHealth = health / 2f;
         animator = GetComponent<Animator>();
+        tooltip = GameObject.FindGameObjectWithTag("TooltipUI").GetComponent<TextMeshProUGUI>();
+        ChangeText(tooltip, "The Creator");
     }
 
     public void DealDamage(int damage)
@@ -47,23 +52,28 @@ public class Boss : MonoBehaviour
             if (health == 0)
             {
                 Instantiate(deathEffect, transform.position, Quaternion.identity);
-
+                ChangeText(tooltip, "CONGRATULATIONS!");
                 Destroy(gameObject);
             }
 
             if (health <= halfHealth)
             {
-                animator.SetTrigger("phase2");
+                ChangeToPhase2();
+                ChangeText(tooltip, "DIE!");
             }
             iSeconds = 1f;
+
+            var randomEnemy = enemies[Random.Range(0, enemies.Count)];
+            float offset = Random.value > 0.5f ? spawnOffset : -spawnOffset;
+            offset *= 1 + Random.value;
+
+            Instantiate(randomEnemy, transform.position + new Vector3(offset, offset, 0), transform.rotation);
         }
 
-
-        var randomEnemy = enemies[Random.Range(0, enemies.Count)];
-        float offset = Random.value > 0.5f ? spawnOffset : -spawnOffset;
-        offset *= 1 + Random.value;
-
-        Instantiate(randomEnemy, transform.position + new Vector3(offset, offset, 0), transform.rotation);
+        if (Random.value < .01f)
+        {
+            animator.SetTrigger("spawningShockwaves");
+        }
 
         StartCoroutine(GetInvulnerability(iSeconds));
     }
@@ -72,27 +82,31 @@ public class Boss : MonoBehaviour
     {
         var boss = gameObject.transform;
         Destroy(Instantiate(shockwave, boss.position, boss.rotation), .2f);
-        ShakeScreen();
+        if (Random.value < .2f || isIntro)
+        {
+            ShakeScreen();
+            isIntro = false;
+        }
+    }
+
+    public void ChangeToPhase2()
+    {
+        animator.SetTrigger("phase2");
     }
 
     public void ShakeScreen()
     {
-        float chance;
-        if (isIntro)
-        {
-            chance = 1f;
-            isIntro = false;
-        }
-        else
-        {
-            chance = .1f;
-        }
+        Camera.main.GetComponent<Animator>().SetTrigger("shake");
+    }
 
-        if (Random.value < chance)
-        {
-            Debug.Log(chance);
-            Camera.main.GetComponent<Animator>().SetTrigger("shake");
-        }
+    public void ChangeText(TextMeshProUGUI textbox, string text)
+    {
+        StartCoroutine(textbox.ChangeText(text));
+    }
+
+    public void ChangeText(string text, System.Func<string, IEnumerator> changeText)
+    {
+        StartCoroutine(changeText(text));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

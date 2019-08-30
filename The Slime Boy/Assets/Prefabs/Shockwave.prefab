@@ -95,7 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scalingSpeedCoefficient: 0.4
   maxSizeCoefficient: 8
-  damage: 0
+  damage: 2
 --- !u!58 &4672072939506222286
 CircleCollider2D:
   m_ObjectHideFlags: 0

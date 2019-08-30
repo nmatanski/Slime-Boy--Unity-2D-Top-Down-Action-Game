@@ -71,8 +71,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75e1de25f6a48f249aa213bb4ae2d183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponToUpgrade: {fileID: 0}
+  weaponToUpgrade: {fileID: 7595605345280979688, guid: d5b7aa4623fe2334ba29ba2d9f16b37b,
+    type: 3}
   levelupValue: 1
+  pickupEffect: {fileID: 5169678579709699051, guid: 10c96c770e16f4c4b81d265ac60c4dcc,
+    type: 3}
 --- !u!1 &7728036211800800850
 GameObject:
   m_ObjectHideFlags: 0
