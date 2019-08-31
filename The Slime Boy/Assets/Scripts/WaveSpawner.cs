@@ -59,12 +59,20 @@ public class WaveSpawner : MonoBehaviour
                         text = "Level 1\nSpikey is angry! He can leap now.";
                         break;
                     case 2:
+                    case 3:
                         text = "Level 1\nLearn everything about Spikey.";
                         break;
                     case 4:
                         text = "Level 1\nMeet... fireballs.";
                         break;
                     case 5:
+                    case 6:
+                        text = "Level 1\nSpikey meets fire.";
+                        break;
+                    case 7:
+                        text = "Level 1\nSwarm time!";
+                        break;
+                    case 8:
                         text = "Level 1\nLearn! Learn! Learn!";
                         break;
                     case 9:
@@ -88,7 +96,7 @@ public class WaveSpawner : MonoBehaviour
                         text = "Level 3\nThe never ending towers.";
                         break;
                     case 15:
-                        text = "Level 3\nThis hurts! ;[";
+                        text = "Level 3\nThis will hurt!";
                         break;
                     case 16:
                         bg.GetComponent<SpriteRenderer>().color = new Color(255, 60, 187); // deep pink
