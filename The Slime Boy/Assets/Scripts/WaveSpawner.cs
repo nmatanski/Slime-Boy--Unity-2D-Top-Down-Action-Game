@@ -36,7 +36,7 @@ public class WaveSpawner : MonoBehaviour
     private void Start()
     {
         tooltip = GameObject.FindGameObjectWithTag("TooltipUI").GetComponent<TextMeshProUGUI>();
-        tooltip.text = "Level 1\nMeet Spikey";
+        //tooltip.text = waves[currentWaveIndex].TooltipText;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         StartCoroutine(StartNextWave(currentWaveIndex));
     }
@@ -52,61 +52,21 @@ public class WaveSpawner : MonoBehaviour
                 currentWaveIndex++;
                 //change background color
                 var bg = GameObject.FindGameObjectWithTag("Background");
-                var text = "";
                 switch (currentWaveIndex)
                 {
-                    case 1:
-                        text = "Level 1\nSpikey is angry! He can leap now.";
-                        break;
-                    case 2:
-                    case 3:
-                        text = "Level 1\nLearn everything about Spikey.";
-                        break;
-                    case 4:
-                        text = "Level 1\nMeet... fireballs.";
-                        break;
-                    case 5:
-                    case 6:
-                        text = "Level 1\nSpikey meets fire.";
-                        break;
-                    case 7:
-                        text = "Level 1\nSwarm time!";
-                        break;
-                    case 8:
-                        text = "Level 1\nLearn! Learn! Learn!";
-                        break;
-                    case 9:
-                        text = "Level 1\nMeet Summoner!";
-                        break;
-                    case 10:
-                        text = "Level 1: THE END\nLearn EVERYTHING!";
-                        break;
                     case 11:
                         bg.GetComponent<SpriteRenderer>().color = Color.cyan;
-                        text = "Level 2\nSwarm time! RUN! RUN! RUN!";
-                        break;
-                    case 12:
-                        text = "Level 2\nDid you learn everything? Let's check your skills now. :)";
-                        break;
-                    case 13:
-                        text = "Level 2\nGood job! You can rest now.";
                         break;
                     case 14:
                         bg.GetComponent<SpriteRenderer>().color = Color.blue;
-                        text = "Level 3\nThe never ending towers.";
-                        break;
-                    case 15:
-                        text = "Level 3\nThis will hurt!";
                         break;
                     case 16:
                         bg.GetComponent<SpriteRenderer>().color = new Color(255, 60, 187); // deep pink
-                        text = "Watch for falling objects!";
                         break;
                         //case 5:
                         //    bg.GetComponent<SpriteRenderer>().color = new Color(15, 165, 140);
                         //    break;
                 }
-                ChangeText(tooltip, text);
                 //end
                 StartCoroutine(StartNextWave(currentWaveIndex));
             }
@@ -141,6 +101,8 @@ public class WaveSpawner : MonoBehaviour
     {
         currentWave = waves[waveIndex];
 
+        ChangeText(tooltip, currentWave.TooltipText);
+
         for (int i = 0; i < currentWave.Count; i++)
         {
             if (player == null)
@@ -156,10 +118,5 @@ public class WaveSpawner : MonoBehaviour
 
             yield return new WaitForSeconds(currentWave.TimeBetweenSpawns);
         }
-
-        //if (waveIndex + 1 == waves.Count)
-        //{
-        //    hasFinishedSpawning = true;
-        //}
     }
 }

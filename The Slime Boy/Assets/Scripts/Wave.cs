@@ -30,4 +30,12 @@ public class Wave
         get { return timeBetweenSpawns; }
         set { timeBetweenSpawns = value; }
     }
+
+    [SerializeField]
+    private string tooltipText;
+    public string TooltipText
+    {
+        get { return tooltipText.Replace("\\n", "\n"); }
+        set { tooltipText = value; }
+    }
 }
