@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Boss : MonoBehaviour
 {
+    private const string iframesHPColor = "#00FFD6";
+
+    private const string whiteColor = "#FFFFFF";
+
     private float halfHealth;
 
     private Animator animator;
@@ -34,11 +39,17 @@ public class Boss : MonoBehaviour
     [SerializeField]
     private GameObject deathEffect;
 
+    [SerializeField]
+    private Slider bossHealthBar;
+
 
     private void Start()
     {
         halfHealth = health / 2f;
         animator = GetComponent<Animator>();
+        bossHealthBar.gameObject.SetActive(true);
+        bossHealthBar.maxValue = health;
+        bossHealthBar.value = health;
         tooltip = GameObject.FindGameObjectWithTag("TooltipUI").GetComponent<TextMeshProUGUI>();
         ChangeText(tooltip, "The Creator");
     }
@@ -49,10 +60,13 @@ public class Boss : MonoBehaviour
         if (!isInvulnerable)
         {
             health = Mathf.Clamp(health - damage, 0, 9999);
+            bossHealthBar.value = health;
+
             if (health == 0)
             {
                 Instantiate(deathEffect, transform.position, Quaternion.identity);
                 ChangeText(tooltip, "CONGRATULATIONS!");
+                bossHealthBar.gameObject.SetActive(false);
                 Destroy(gameObject);
             }
 
@@ -119,8 +133,14 @@ public class Boss : MonoBehaviour
 
     private IEnumerator GetInvulnerability(float iSeconds)
     {
+        var barSprite = GameObject.FindGameObjectWithTag("BossHPBarFill").GetComponent<Image>();
+
+        barSprite.color = ColorUtility.TryParseHtmlString(iframesHPColor, out Color color) ? color : barSprite.color;
         isInvulnerable = true;
+
         yield return new WaitForSeconds(iSeconds);
+
         isInvulnerable = false;
+        barSprite.color = ColorUtility.TryParseHtmlString(whiteColor, out color) ? color : barSprite.color;
     }
 }

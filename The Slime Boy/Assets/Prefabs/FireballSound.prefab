@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8218425200868432615}
   - component: {fileID: 8218425200868432614}
+  - component: {fileID: 3732230725960810157}
   m_Layer: 0
   m_Name: FireballSound
   m_TagString: FireballSound
@@ -127,3 +128,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3732230725960810157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8218425200868432613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f977a9031359ba4fbf42f1d5126621e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeSpan: 2
