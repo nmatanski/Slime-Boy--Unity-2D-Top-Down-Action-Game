@@ -16,6 +16,9 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     private int damage;
 
+    [SerializeField]
+    private GameObject sound;
+
     //public Vector3 Angle { get; set; }
 
 
@@ -23,6 +26,10 @@ public class Projectile : MonoBehaviour
     private void Start()
     {
         Invoke("DestroyProjectile", lifeSpan);
+        if (GameObject.FindGameObjectsWithTag("SlimeSound").Length < 7 || Random.value < .5f) ///TODO: remove random.value and find a way to not make a spam
+        {
+            Instantiate(sound, transform.position, transform.rotation);
+        }
         //transform.Rotate(Angle);
     }
 

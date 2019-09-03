@@ -14,11 +14,18 @@ public class EnemyBullet : MonoBehaviour
     [SerializeField]
     private int damage;
 
+    [SerializeField]
+    private GameObject sound;
+
 
     private void Start()
     {
         playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         targetPosition = playerScript.transform.position;
+        if (GameObject.FindGameObjectsWithTag("FireballSound").Length < 3 || Random.value < .5f)
+        {
+            Instantiate(sound, transform.position, transform.rotation);
+        }
     }
 
     private void Update()
