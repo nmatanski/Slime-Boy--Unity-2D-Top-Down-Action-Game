@@ -99,11 +99,11 @@ public class Enemy : Character
             var deathParticles = Instantiate(deathEffect, transform.position, Quaternion.identity).GetComponent<ParticleSystem>().main;
             deathParticles.simulationSpeed = 3f;
 
-            Destroy(gameObject);
+            Destroy();
         }
     }
 
-    private void OnDestroy() // use this method for things you want to lock to execute only once per object's life (at its end)
+    private void Destroy() // use this method for things you want to lock to execute only once per object's life (at its end)
     {
         int randomNumer = Random.Range(0, 101);
         bool hasPickup = false;
@@ -124,5 +124,6 @@ public class Enemy : Character
             Instantiate(randomPickup, position, rotation).SetActive(true);
         }
 
+        Destroy(gameObject);
     }
 }

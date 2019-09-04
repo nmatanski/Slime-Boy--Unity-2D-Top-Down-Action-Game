@@ -20,6 +20,8 @@ public class Boss : MonoBehaviour
 
     private bool isIntro = true;
 
+    private SceneTransition sceneTransition;
+
 
     [SerializeField]
     private int health;
@@ -50,6 +52,7 @@ public class Boss : MonoBehaviour
         bossHealthBar.gameObject.SetActive(true);
         bossHealthBar.maxValue = health;
         bossHealthBar.value = health;
+        sceneTransition = FindObjectOfType<SceneTransition>();
         tooltip = GameObject.FindGameObjectWithTag("TooltipUI").GetComponent<TextMeshProUGUI>();
         ChangeText(tooltip, "The Creator");
     }
@@ -68,6 +71,7 @@ public class Boss : MonoBehaviour
                 ChangeText(tooltip, "CONGRATULATIONS!");
                 bossHealthBar.gameObject.SetActive(false);
                 Destroy(gameObject);
+                sceneTransition.LoadScene("Win");
             }
 
             if (health <= halfHealth)
@@ -133,6 +137,11 @@ public class Boss : MonoBehaviour
 
     private IEnumerator GetInvulnerability(float iSeconds)
     {
+        if (GameObject.FindGameObjectWithTag("BossHPBarFill") == null) ///TODO: temporary nullpointerexception fix
+        {
+            yield break;
+        }
+
         var barSprite = GameObject.FindGameObjectWithTag("BossHPBarFill").GetComponent<Image>();
 
         barSprite.color = ColorUtility.TryParseHtmlString(iframesHPColor, out Color color) ? color : barSprite.color;

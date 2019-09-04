@@ -15,6 +15,10 @@ public class HealthPickup : MonoBehaviour
 
     private void Start()
     {
+        if (GameObject.FindGameObjectWithTag("Player") == null) ///TODO: temporary nullpointerexception fix
+        {
+            return;
+        }
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 

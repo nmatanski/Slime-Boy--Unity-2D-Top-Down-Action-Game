@@ -20,6 +20,8 @@ public class Player : Character
 
     private bool isInvulnerable = false;
 
+    private SceneTransition sceneTransition;
+
 
     [SerializeField]
     private Animator hurtAnimator;
@@ -51,6 +53,7 @@ public class Player : Character
         animator = GetComponent<Animator>();
         cameraAnimator = Camera.main.GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        sceneTransition = FindObjectOfType<SceneTransition>();
         MaxHealth = Health;
     }
 
@@ -168,13 +171,6 @@ public class Player : Character
         UpdateHealthUI(Health);
     }
 
-    private IEnumerator RestartLevel(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
-        Destroy(gameObject);
-    }
-
     private IEnumerator DealDamage()
     {
         if (isInvulnerable)
@@ -195,18 +191,21 @@ public class Player : Character
             Debug.Log("\n\t\tHurtPanel happens now!");
         }
 
-        hurtAnimator.SetTrigger("hurt");
-        cameraAnimator.SetTrigger("shake");
-
-        StartCoroutine(GetInvulnerability());
-
         if (Health == 0)
         {
             ///TODO: temporary restart
-            StartCoroutine(RestartLevel(3f));
-            //Destroy(gameObject); //add this
-            ///end
+            //StartCoroutine(RestartLevel(3f));
+
+            Destroy(gameObject); //add this
+            sceneTransition.LoadScene(2);
         }
+        else
+        {
+            hurtAnimator.SetTrigger("hurt");
+            cameraAnimator.SetTrigger("shake");
+        }
+
+        StartCoroutine(GetInvulnerability());
     }
 
     private IEnumerator GetInvulnerability()
@@ -215,4 +214,12 @@ public class Player : Character
         yield return new WaitForSeconds(.2f);
         isInvulnerable = false;
     }
+
+    ///Not used
+    //private IEnumerator RestartLevel(float delay)
+    //{
+    //    yield return new WaitForSeconds(delay);
+    //    UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    //    Destroy(gameObject);
+    //}
 }
