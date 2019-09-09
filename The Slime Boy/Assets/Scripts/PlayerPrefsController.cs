@@ -27,6 +27,11 @@ public class PlayerPrefsController : MonoBehaviour
 
         var field = GetComponent<TMP_InputField>();
 
+        if (field.text == "Abken")
+        {
+            return;
+        }
+
         PlayerPrefs.SetString("PlayerName", field.text);
 
         Debug.Log(PlayerPrefs.GetString("PlayerName"));

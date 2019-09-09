@@ -38,7 +38,7 @@ public class WaveSpawner : MonoBehaviour
         tooltip = GameObject.FindGameObjectWithTag("TooltipUI").GetComponent<TextMeshProUGUI>();
         //tooltip.text = waves[currentWaveIndex].TooltipText;
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        StartCoroutine(StartNextWave(currentWaveIndex));
+        StartNextWave(currentWaveIndex);
     }
 
     private void Update()
@@ -68,7 +68,7 @@ public class WaveSpawner : MonoBehaviour
                         //    break;
                 }
                 //end
-                StartCoroutine(StartNextWave(currentWaveIndex));
+                StartNextWave(currentWaveIndex);
             }
             else
             {
@@ -91,17 +91,18 @@ public class WaveSpawner : MonoBehaviour
         StartCoroutine(changeText(text));
     }
 
-    private IEnumerator StartNextWave(int waveIndex)
+    private void StartNextWave(int waveIndex)
     {
-        yield return new WaitForSeconds(timeBetweenWaves);
         StartCoroutine(SpawnWave(waveIndex));
     }
 
     private IEnumerator SpawnWave(int waveIndex)
     {
         currentWave = waves[waveIndex];
-
         ChangeText(tooltip, currentWave.TooltipText);
+
+        yield return new WaitForSeconds(timeBetweenWaves);
+
 
         for (int i = 0; i < currentWave.Count; i++)
         {

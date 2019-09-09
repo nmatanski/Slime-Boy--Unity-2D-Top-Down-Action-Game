@@ -57,7 +57,7 @@ public class Player : Character
         }
         set
         {
-            score = value;
+            score = GetRandomNonNegativeValue(value);
             GameObject.FindGameObjectWithTag("ScoreText").GetComponent<TextMeshProUGUI>().text = score.ToString();
         }
     }
@@ -189,6 +189,16 @@ public class Player : Character
     {
         base.Heal(healAmount);
         UpdateHealthUI(Health);
+    }
+
+    private int GetRandomNonNegativeValue(int min, int max)
+    {
+        return UnityEngine.Random.Range(Mathf.Clamp(min, 0, int.MaxValue), max + 1);
+    }
+
+    private int GetRandomNonNegativeValue(int max)
+    {
+        return UnityEngine.Random.Range(Mathf.Clamp(max - 5, 0, int.MaxValue), max + 1);
     }
 
     private IEnumerator DealDamage()

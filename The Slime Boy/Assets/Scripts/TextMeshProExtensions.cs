@@ -7,6 +7,11 @@ public static class TextMeshProExtensions
 {
     public static IEnumerator ChangeText(this TextMeshProUGUI textbox, string text)
     {
+        if (textbox.text == text)
+        {
+            yield break;
+        }
+
         var animator = textbox.GetComponent<Animator>();
         animator.SetTrigger("FadeOut");
         yield return new WaitForSeconds(2f);
