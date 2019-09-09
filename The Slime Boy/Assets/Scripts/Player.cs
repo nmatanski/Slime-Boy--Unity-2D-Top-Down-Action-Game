@@ -22,6 +22,8 @@ public class Player : Character
 
     private SceneTransition sceneTransition;
 
+    public PlayerPrefsController PlayerPrefsController { get; set; }
+
 
     [SerializeField]
     private Animator hurtAnimator;
@@ -44,6 +46,14 @@ public class Player : Character
     [SerializeField]
     private Sprite emptyHeart;
 
+    [SerializeField]
+    private int score;
+    public int Score
+    {
+        get { return score; }
+        set { score = value; }
+    }
+
     public bool IsHitByShockwave { get; set; } = false;
 
 
@@ -55,6 +65,8 @@ public class Player : Character
         rb = GetComponent<Rigidbody2D>();
         sceneTransition = FindObjectOfType<SceneTransition>();
         MaxHealth = Health;
+
+        PlayerPrefsController = GetComponent<PlayerPrefsController>();
     }
 
     // Update is called once per frame
@@ -195,6 +207,8 @@ public class Player : Character
         {
             ///TODO: temporary restart
             //StartCoroutine(RestartLevel(3f));
+
+            PlayerPrefsController.SetScore(Score);
 
             Destroy(gameObject); //add this
             sceneTransition.LoadScene(2);

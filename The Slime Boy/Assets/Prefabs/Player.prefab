@@ -169,6 +169,7 @@ GameObject:
   - component: {fileID: 122646321994711488}
   - component: {fileID: 122646321994711489}
   - component: {fileID: 122646321994711495}
+  - component: {fileID: 1082157350242306792}
   - component: {fileID: 122646321994711494}
   - component: {fileID: 122646321994711492}
   m_Layer: 8
@@ -230,8 +231,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430ce50ef4bde71439c42ad2e7c32e38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 77
   speed: 15
+  health: 77
+  hurtAnimator: {fileID: 0}
+  hearts: []
+  fullHeart: {fileID: 0}
+  threeQuartersHeart: {fileID: 0}
+  halfHeart: {fileID: 0}
+  quarterHeart: {fileID: 0}
+  emptyHeart: {fileID: 0}
+  score: 0
+--- !u!114 &1082157350242306792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122646321994711491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35eda8bdc47e9604db7e605dafd98a09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &122646321994711494
 Rigidbody2D:
   serializedVersion: 4
@@ -1957,6 +1978,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 5229097640448922256, guid: 9a65aed9650fb5345827cdcb4ca62fdd,
+        type: 3}
+      propertyPath: shotPoint
+      value: 
+      objectReference: {fileID: 5269993003355711655}
     - target: {fileID: 5229097640614482964, guid: 9a65aed9650fb5345827cdcb4ca62fdd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2027,11 +2053,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 5229097640448922256, guid: 9a65aed9650fb5345827cdcb4ca62fdd,
-        type: 3}
-      propertyPath: shotPoint
-      value: 
-      objectReference: {fileID: 5269993003355711655}
     - target: {fileID: 758038981, guid: 9a65aed9650fb5345827cdcb4ca62fdd, type: 3}
       propertyPath: m_Layer
       value: 8

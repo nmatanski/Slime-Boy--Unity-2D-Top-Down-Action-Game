@@ -70,6 +70,11 @@ public class Boss : MonoBehaviour
                 Instantiate(deathEffect, transform.position, Quaternion.identity);
                 ChangeText(tooltip, "CONGRATULATIONS!");
                 bossHealthBar.gameObject.SetActive(false);
+
+                ///TODO: Not tested yet!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                var player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+                player.PlayerPrefsController.SetScore(player.Score);
+
                 Destroy(gameObject);
                 sceneTransition.LoadScene("Win");
             }
