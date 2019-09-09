@@ -79,6 +79,9 @@ public class Enemy : Character
     [SerializeField]
     private GameObject deathEffect;
 
+    [SerializeField]
+    private int scorePoints;
+
 
     // Start is called before the first frame update
     public virtual void Start()
@@ -93,6 +96,8 @@ public class Enemy : Character
         Health = Mathf.Clamp(Health - damage, 0, 9999);
         if (Health == 0)
         {
+            Player.GetComponent<Player>().Score += scorePoints;
+
             position = transform.position;
             rotation = transform.rotation;
 

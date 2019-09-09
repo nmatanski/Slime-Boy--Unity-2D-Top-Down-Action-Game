@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -50,8 +51,15 @@ public class Player : Character
     private int score;
     public int Score
     {
-        get { return score; }
-        set { score = value; }
+        get
+        {
+            return score;
+        }
+        set
+        {
+            score = value;
+            GameObject.FindGameObjectWithTag("ScoreText").GetComponent<TextMeshProUGUI>().text = score.ToString();
+        }
     }
 
     public bool IsHitByShockwave { get; set; } = false;

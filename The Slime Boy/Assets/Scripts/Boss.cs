@@ -22,6 +22,8 @@ public class Boss : MonoBehaviour
 
     private SceneTransition sceneTransition;
 
+    private Player player;
+
 
     [SerializeField]
     private int health;
@@ -44,9 +46,14 @@ public class Boss : MonoBehaviour
     [SerializeField]
     private Slider bossHealthBar;
 
+    [SerializeField]
+    private int scorePoints;
+
 
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
         halfHealth = health / 2f;
         animator = GetComponent<Animator>();
         bossHealthBar.gameObject.SetActive(true);
@@ -71,8 +78,8 @@ public class Boss : MonoBehaviour
                 ChangeText(tooltip, "CONGRATULATIONS!");
                 bossHealthBar.gameObject.SetActive(false);
 
-                ///TODO: Not tested yet!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                var player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+                player.Score += scorePoints;
+
                 player.PlayerPrefsController.SetScore(player.Score);
 
                 Destroy(gameObject);
@@ -150,6 +157,7 @@ public class Boss : MonoBehaviour
         var barSprite = GameObject.FindGameObjectWithTag("BossHPBarFill").GetComponent<Image>();
 
         barSprite.color = ColorUtility.TryParseHtmlString(iframesHPColor, out Color color) ? color : barSprite.color;
+        player.Score -= 20; //punish for hitting the boss while being immune to damage
         isInvulnerable = true;
 
         yield return new WaitForSeconds(iSeconds);
